@@ -33,12 +33,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
 
-- task: AzureRmWebAppDeployment@4
-  displayName: 'Azure App Service Deploy'
-  inputs:
-    azureSubscription: 'your-azure-subscription-service-connection-name'  # Replace with your Azure service connection
-    appType: 'webApp'
-    WebAppName: ${{ variables.azureWebAppServiceName }}
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-    enableCustomDeployment: true
-    deploymentType: 'webDeploy'
